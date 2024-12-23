@@ -1,23 +1,34 @@
+import { useState } from 'react';
 import './App.css';
-import Button from './components/Button';
-import Header from './components/Header';
 
 function App() {
-  const buttonProps = {
-    text: '메일',
-    color: 'red',
-    a: 1,
-    b: 2,
-    c: 3,
-  };
+  // const state = useState();
+  // console.log(state);
+  const [count, setCount] = useState(0);
+  const [light, setLight] = useState('OFF');
 
   return (
     <>
-      <Button {...buttonProps} />
-      <Button text={'카페'} />
-      <Button text={'블로그'}>
-        <Header />
-      </Button>
+      <div>
+        <h2>{light}</h2>
+        <button
+          onClick={() => {
+            setLight(light === 'ON' ? 'OFF' : 'ON');
+          }}
+        >
+          {light === 'ON' ? '끄기' : '켜기'}
+        </button>
+      </div>
+      <div>
+        <h2>{count}</h2>
+        <button
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          +
+        </button>
+      </div>
     </>
   );
 }
