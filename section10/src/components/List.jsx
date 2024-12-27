@@ -21,22 +21,7 @@ function List({ todos, onUpdate, onDelete }) {
 
   const filteredData = getFilteredData();
 
-  // const getAnalyzedDate = () => {
-  //   const totalCount = todos.length;
-  //   const doneCount = todos.filter((todo) => todo.isDone).length;
-  //   const notDoneCount = totalCount - doneCount;
-
-  //   return {
-  //     totalCount,
-  //     doneCount,
-  //     notDoneCount,
-  //   };
-  // };
-
-  // const { totalCount, doneCount, notDoneCount } = getAnalyzedDate();
-
   const { totalCount, doneCount, notDoneCount } = useMemo(() => {
-    console.log(11);
     const totalCount = todos.length;
     const doneCount = todos.filter((todo) => todo.isDone).length;
     const notDoneCount = totalCount - doneCount;
