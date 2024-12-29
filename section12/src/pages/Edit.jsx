@@ -5,6 +5,7 @@ import Editor from '../components/Editor';
 import { DiaryDispatchContext, DiaryStateContext } from '../App';
 import { useContext, useEffect, useState } from 'react';
 import useDiary from '../hooks/useDiary';
+import usePageTitle from '../hooks/usePageTitle';
 
 function Edit() {
   const params = useParams();
@@ -12,6 +13,8 @@ function Edit() {
   const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
 
   const curDiaryItem = useDiary(params.id);
+
+  usePageTitle(`${params.id}번 일기 수정`);
 
   const onClickDelete = () => {
     if (window.confirm('일기를 정말 삭제할까요?')) {
